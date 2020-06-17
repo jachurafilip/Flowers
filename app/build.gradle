@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.flowers"
-        minSdkVersion 23
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -39,6 +43,7 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
     testImplementation 'junit:junit:4.12'
+    annotationProcessor "com.android.databinding:compiler:3.2.0-alpha10"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     annotationProcessor 'androidx.room:room-compiler:2.2.2'

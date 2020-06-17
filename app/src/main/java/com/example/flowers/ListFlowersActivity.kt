@@ -14,14 +14,15 @@ class ListFlowersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.flower_list)
 
-        val flowers = getAllFlowers()
-        Log.e("test", flowers.toString())
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.textView, FlowerListFragment.newInstance(), "flowerList")
+                .commit()
+        }
     }
-
-    fun getAllFlowers(): List<Flower>
-    {
+    fun getAllFlowers(): List<Flower> {
         return flowerDao.getAllFlowers()
     }
 }
