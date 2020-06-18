@@ -1,11 +1,12 @@
 package com.example.flowers
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-
+import android.content.IntentFilter
 import android.os.Bundle
-import android.view.View;
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.flowers.DB.AppDatabase
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         db = AppDatabase.getInstance(applicationContext)
+
+        val receiver = MyReceiver()
+        val mTime = IntentFilter(Intent.ACTION_TIME_TICK)
+        registerReceiver(receiver, mTime)
     }
     fun addFlower(view: View)
     {

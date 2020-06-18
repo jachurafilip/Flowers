@@ -18,7 +18,10 @@ data class Flower(
     val lastWatering: Date = Date(),
 
     @ColumnInfo(name = "frequency")
-    val frequency: Long = 0
+    val frequency: Long = 0, //in minutes
+
+    @ColumnInfo(name = "isNotifcationSent")
+    var isNotificationSent: Boolean = false
 
 
 ) {
@@ -33,6 +36,14 @@ data class Flower(
         if (name != other.name) return false
 
         return true
+    }
+
+    override fun hashCode(): Int {
+        var result = flowerId.hashCode()
+        result = 31 * result + name.hashCode()
+        result = 31 * result + lastWatering.hashCode()
+        result = 31 * result + frequency.hashCode()
+        return result
     }
 
 }
