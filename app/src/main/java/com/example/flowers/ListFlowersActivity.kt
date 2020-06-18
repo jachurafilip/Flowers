@@ -7,7 +7,7 @@ import com.example.flowers.DB.AppDatabase
 import com.example.flowers.DB.Flower
 import com.example.flowers.DB.FlowerDAO
 
-class ListFlowersActivity : AppCompatActivity() {
+class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSelected {
     private val db: AppDatabase = AppDatabase.getInstance()
     private val flowerDao: FlowerDAO = db.FlowerDAO()
 
@@ -18,10 +18,21 @@ class ListFlowersActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.textView, FlowerListFragment.newInstance(), "flowerList")
+                .add(R.id.root_layout, FlowerListFragment.newInstance(), "flowerList")
                 .commit()
         }
     }
+
+    override fun onFlowerSelected(flowerModel: FlowerModel) {
+        val detailsFragment =
+            FlowerDetailsFragment.newInstance(flowerModel)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.root_layout, detailsFragment, "flowerDetails")
+            .addToBackStack(null)
+            .commit()
+    }
+
     fun getAllFlowers(): List<Flower> {
         return flowerDao.getAllFlowers()
     }
