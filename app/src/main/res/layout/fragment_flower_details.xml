@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="dogModel"
+            name="flowerModel"
             type="com.example.flowers.FlowerModel" />
     </data>
 
@@ -31,7 +31,7 @@
 
             <ImageView
                 android:id="@+id/dog_image"
-                imageResource="@{dogModel.imageResId}"
+                imageResource="@{flowerModel.imageResId}"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dog_detail_image_size"
                 android:layout_marginTop="@dimen/dog_detail_image_margin_vertical"
@@ -50,7 +50,7 @@
                 android:layout_marginRight="@dimen/dog_detail_description_margin_right"
                 android:layout_marginBottom="@dimen/dog_detail_description_margin_bottom"
                 android:autoLink="web"
-                android:text="@{dogModel.text}" />
+                android:text="@{flowerModel.text}" />
 
         </LinearLayout>
 

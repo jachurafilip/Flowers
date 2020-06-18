@@ -11,7 +11,7 @@
     <FrameLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/recycler_layout_spacing">
+        android:layout_margin="4dp">
 
         <ImageView
             android:id="@+id/flower_image"

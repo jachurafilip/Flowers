@@ -30,7 +30,7 @@ class FlowerDetailsFragment : Fragment() {
             FragmentFlowerDetailsBinding.inflate(inflater, container, false)
 
         val model = arguments!!.getSerializable(FLOWERMODEL) as FlowerModel
-        fragmentFlowerDetailsBinding.dogModel = model
+        fragmentFlowerDetailsBinding.flowerModel = model
         model.text = String.format(getString(R.string.description_format), model.description, model.url)
         return fragmentFlowerDetailsBinding.root
     }

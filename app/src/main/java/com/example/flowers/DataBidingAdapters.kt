@@ -1,7 +1,7 @@
 package com.example.flowers
 
 import android.widget.ImageView
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 
 
 object DataBidingAdapters {

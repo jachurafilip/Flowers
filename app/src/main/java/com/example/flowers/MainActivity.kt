@@ -15,10 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         db = AppDatabase.getInstance(applicationContext)
-
-
-
-
     }
     fun addFlower(view: View)
     {
