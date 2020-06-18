@@ -35,13 +35,13 @@ class FlowerListFragment : Fragment() {
             throw ClassCastException(context.toString() + " must implement OnFlowerSelected.")
         }
 
-        // Get dog names and descriptions.
+        // Get names and descriptions.
         val resources = context.resources
         names = resources.getStringArray(R.array.names)
         descriptions = resources.getStringArray(R.array.descriptions)
         urls = resources.getStringArray(R.array.urls)
 
-        // Get dog images.
+        // Get images.
         val typedArray = resources.obtainTypedArray(R.array.images)
         val imageCount = names.size
         imageResIds = IntArray(imageCount)

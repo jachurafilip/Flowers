@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Flowers</string>
     <string name="description_format">%1$s\n\n%2$s</string>
+    <string name="add_item">Add Item</string>
+    <string name="add_new_item_dialog_title">Add New Item</string>
+    <string name="edit_item_dialog_title">Edit Item</string>
+    <string name="save_button">Save</string>
+    <string name="button_edit">Edit</string>
+    <string name="flower_name">Flower name</string>
+    <string name="last_watering">Last watering</string>
+    <string name="frequency">Frequency</string>
 </resources>

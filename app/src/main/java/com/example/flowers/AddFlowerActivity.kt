@@ -16,16 +16,15 @@ class AddFlowerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.flower_add)
 
-        val flower = Flower( name = "abc", lastWatering = Date(1), frequency =  120)
 
+
+        val flower = Flower( name = "abc", lastWatering = Date(1), frequency =  120)
 
        insertFlower(flower)
 
-
     }
 
-    fun insertFlower(flower: Flower)
-    {
+    fun insertFlower(flower: Flower) {
         flowerDao.insert(flower)
     }
 }
