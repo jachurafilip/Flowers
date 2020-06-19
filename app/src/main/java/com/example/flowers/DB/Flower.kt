@@ -12,13 +12,13 @@ data class Flower(
     @PrimaryKey(autoGenerate = true)
     val flowerId: Long = 0,
     @ColumnInfo(name = "name")
-    val name: String = "",
+    var name: String = "",
 
     @ColumnInfo(name = "lastWatering")
-    val lastWatering: Date = Date(),
+    var lastWatering: Date = Date(),
 
     @ColumnInfo(name = "frequency")
-    val frequency: Long = 0, //in minutes
+    var frequency: Long = 0, //in minutes
 
     @ColumnInfo(name = "isNotifcationSent")
     var isNotificationSent: Boolean = false

@@ -9,4 +9,5 @@
     <string name="flower_name">Flower name</string>
     <string name="last_watering">Last watering</string>
     <string name="frequency">Frequency</string>
+    <string name="Add_flower">Add flower!</string>
 </resources>
