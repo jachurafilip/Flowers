@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flowers.DB.AppDatabase
 import com.example.flowers.DB.Flower
@@ -31,35 +32,34 @@ class AddFlowerActivity : AppCompatActivity() {
 
     }
 
-    val textView: TextView = findViewById(R.id.new_item_last_watering)
-    val buttonDate: Button = findViewById(R.id.new_item_last_watering_button)
+    val textView: TextView = this.new_item_last_watering
+    val buttonDate: Button = this.new_item_last_watering_button
+//    textView!!.text = "--/--/----"
 
     fun addFlower(view: View)
     {
         val flower = Flower()
-        flower.name = new_item_name.text.toString()
 
-
-        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
-                                   dayOfMonth: Int) {
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                updateDateInView()
-            }
-        }
-
-        buttonDate!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(this@AddFlowerActivity,
-                    dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)).show()
-            }
-        })
+//        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
+//            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
+//                                   dayOfMonth: Int) {
+//                cal.set(Calendar.YEAR, year)
+//                cal.set(Calendar.MONTH, monthOfYear)
+//                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+//                updateDateInView()
+//            }
+//        }
+//
+//        buttonDate!!.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(view: View) {
+//                DatePickerDialog(this@AddFlowerActivity,
+//                    dateSetListener,
+//                    // set DatePickerDialog to point to today's date when it loads up
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)).show()
+//            }
+//        })
 //        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 //            cal.set(Calendar.YEAR, year)
 //            cal.set(Calendar.MONTH, monthOfYear)
@@ -71,9 +71,22 @@ class AddFlowerActivity : AppCompatActivity() {
 //
 //        }
 
+        val datePicker = findViewById<DatePicker>(R.id.date_picker)
+        val cal = Calendar.getInstance()
+        datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+            cal.get(Calendar.DAY_OF_MONTH)
+
+        ) { view, year, month, day ->
+            val month = month + 1
+            val msg = "You Selected: $day/$month/$year"
+            val date = "$day$month$year"
+            flower.lastWatering.time = date.toLong()
+            Toast.makeText(this@AddFlowerActivity, msg, Toast.LENGTH_SHORT).show()
+        }
 
 
-        flower.lastWatering.time = cal.toString().toLong()
+        flower.name = new_item_name.text.toString()
+//        flower.lastWatering.time = cal.toString().toLong()
         flower.frequency = new_item_frequency.text.toString().toLong()
         flower.isNotificationSent = false
         insertFlower(flower)

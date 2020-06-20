@@ -51,6 +51,15 @@
 <!--        android:inputType="date"-->
 <!--        android:text="" />-->
 
+
+    <DatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="true"/>
+
+
     <Button
         android:id="@+id/new_item_last_watering_button"
         android:layout_width="wrap_content"
