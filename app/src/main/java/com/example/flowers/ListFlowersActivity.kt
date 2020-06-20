@@ -47,9 +47,14 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
     {
         val flower = flowerDao.getFlowerById(flowerId)
         flower.lastWatering.time = Calendar.getInstance().time.time
+        flower.isNotificationSent = false
         Log.e("WATER", flower.toString())
         flowerDao.update(flower)
-
+    }
+    fun delete(view: View)
+    {
+        val flower = flowerDao.getFlowerById(flowerId)
+        flowerDao.delete(flower)
     }
 
 }

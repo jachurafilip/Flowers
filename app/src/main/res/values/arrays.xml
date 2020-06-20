@@ -28,7 +28,16 @@
   ~ THE SOFTWARE.
   -->
 <resources>
-
+  <array name="images">
+    <item>@drawable/labrador</item>
+    <item>@drawable/malamute</item>
+    <item>@drawable/husky</item>
+    <item>@drawable/pomeranian</item>
+    <item>@drawable/redbone</item>
+    <item>@drawable/rottweiler</item>
+    <item>@drawable/sheepdog</item>
+    <item>@drawable/springer</item>
+  </array>
 
   <string-array name="names">
     <item>Labrador</item>

@@ -38,6 +38,7 @@ class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSel
     {
         val flower = flowerDao.getFlowerById(flowerId)
         flower.lastWatering.time = Calendar.getInstance().time.time
+        flower.isNotificationSent = false
         Log.e("WATER", flower.toString())
         flowerDao.update(flower)
 
