@@ -31,7 +31,6 @@ class FlowerDetailsFragment : Fragment() {
 
         val model = arguments!!.getSerializable(FLOWERMODEL) as FlowerModel
         fragmentFlowerDetailsBinding.flowerModel = model
-        model.text = String.format(getString(R.string.description_format), model.description, model.url)
         return fragmentFlowerDetailsBinding.root
     }
 
