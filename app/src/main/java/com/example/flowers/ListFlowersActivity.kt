@@ -1,5 +1,6 @@
 package com.example.flowers
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.flowers.DB.FlowerDAO
 import java.util.*
 
 class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSelected {
+    val FLOWER_ID = "com.example.myfirstapp.FLOWERID"
     private val db: AppDatabase = AppDatabase.getInstance()
     private val flowerDao: FlowerDAO = db.FlowerDAO()
     private var flowerId = -1L
@@ -50,11 +52,16 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
         flower.isNotificationSent = false
         Log.e("WATER", flower.toString())
         flowerDao.update(flower)
+        val resultIntent = Intent(this, FlowerDetailsActivity::class.java)
+        resultIntent.putExtra(FLOWER_ID, flower.flowerId)
+        startActivity(resultIntent)
     }
     fun delete(view: View)
     {
         val flower = flowerDao.getFlowerById(flowerId)
         flowerDao.delete(flower)
+        val resultIntent = Intent(this, ListFlowersActivity::class.java)
+        startActivity(resultIntent)
     }
 
 }
