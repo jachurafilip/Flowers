@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.flowers.DB.Flower
 import com.example.flowers.databinding.FragmentFlowerDetailsBinding
 
 
@@ -22,16 +21,6 @@ class FlowerDetailsFragment : Fragment() {
             val fragment = FlowerDetailsFragment()
             fragment.arguments = args
             return fragment
-        }
-
-        fun fragment(flower: Flower): FlowerDetailsFragment
-        {
-            val args = Bundle()
-            args.putSerializable(FLOWERMODEL, flower)
-            val fragment = FlowerDetailsFragment()
-            fragment.arguments = args
-            return fragment
-
         }
     }
 

@@ -24,7 +24,7 @@ class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSel
 
         val flower = flowerDao.getFlowerById(flowerId)
 
-        val model = FlowerModel(flower.name, flower.lastWatering, flower.frequency)
+        val model = FlowerModel(flower.flowerId,flower.name, flower.lastWatering, flower.frequency)
 
         val detailsFragment = FlowerDetailsFragment.newInstance(model)
         supportFragmentManager
@@ -52,7 +52,7 @@ class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSel
     override fun onFlowerSelected(flowerModel: FlowerModel) {
         val flower = flowerDao.getFlowerById(flowerId)
 
-        val model = FlowerModel(flower.name, flower.lastWatering, flower.frequency)
+        val model = FlowerModel(flower.flowerId, flower.name, flower.lastWatering, flower.frequency)
 
         val detailsFragment = FlowerDetailsFragment.newInstance(model)
         supportFragmentManager

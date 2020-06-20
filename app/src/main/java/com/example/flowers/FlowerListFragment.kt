@@ -17,6 +17,7 @@ import kotlin.collections.ArrayList
 
 class FlowerListFragment : Fragment() {
 
+    private  var ids: MutableList<Long> = ArrayList()
     private  var names: MutableList<String> = ArrayList()
     private  var dates: MutableList<Date> = ArrayList()
     private  var frequencies: MutableList<Long> = ArrayList()
@@ -46,6 +47,7 @@ class FlowerListFragment : Fragment() {
 
         for (flower in allPlants)
         {
+            ids.add(flower.flowerId)
             names.add(flower.name)
             dates.add(flower.lastWatering)
             frequencies.add(flower.frequency)
@@ -77,7 +79,7 @@ class FlowerListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val flower = FlowerModel( names[position],
+            val flower = FlowerModel( ids[position],names[position],
                 dates[position], frequencies[position])
             viewHolder.setData(flower)
             viewHolder.itemView.setOnClickListener { listener.onFlowerSelected(flower) }

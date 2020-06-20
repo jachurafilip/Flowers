@@ -2,14 +2,17 @@ package com.example.flowers
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flowers.DB.AppDatabase
 import com.example.flowers.DB.Flower
 import com.example.flowers.DB.FlowerDAO
+import java.util.*
 
 class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSelected {
     private val db: AppDatabase = AppDatabase.getInstance()
     private val flowerDao: FlowerDAO = db.FlowerDAO()
+    private var flowerId = -1L
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,8 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
     }
 
     override fun onFlowerSelected(flowerModel: FlowerModel) {
+
+        flowerId = flowerModel.id
         val detailsFragment =
             FlowerDetailsFragment.newInstance(flowerModel)
         supportFragmentManager
@@ -38,4 +43,13 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
     fun getAllFlowers(): List<Flower> {
         return flowerDao.getAllFlowers()
     }
+    fun water(view: View)
+    {
+        val flower = flowerDao.getFlowerById(flowerId)
+        flower.lastWatering.time = Calendar.getInstance().time.time
+        Log.e("WATER", flower.toString())
+        flowerDao.update(flower)
+
+    }
+
 }
