@@ -15,6 +15,7 @@ import com.example.flowers.DB.Flower
 import java.util.*
 
 class MyReceiver : BroadcastReceiver() {
+    val FLOWER_ID = "com.example.myfirstapp.FLOWERID"
     private val db = AppDatabase.getInstance()
     private val flowerDAO = db.FlowerDAO()
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
@@ -41,6 +42,7 @@ class MyReceiver : BroadcastReceiver() {
         val mNotificationManager = p0.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val resultIntent = Intent(p0, FlowerDetailsActivity::class.java)
+        resultIntent.putExtra(FLOWER_ID, flower.flowerId)
         val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(p0).run {
             // Add the intent, which inflates the back stack
             addNextIntentWithParentStack(resultIntent)
