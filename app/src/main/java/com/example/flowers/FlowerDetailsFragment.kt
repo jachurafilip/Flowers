@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.flowers.DB.Flower
 import com.example.flowers.databinding.FragmentFlowerDetailsBinding
 
 
@@ -22,6 +23,16 @@ class FlowerDetailsFragment : Fragment() {
             fragment.arguments = args
             return fragment
         }
+
+        fun fragment(flower: Flower): FlowerDetailsFragment
+        {
+            val args = Bundle()
+            args.putSerializable(FLOWERMODEL, flower)
+            val fragment = FlowerDetailsFragment()
+            fragment.arguments = args
+            return fragment
+
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +42,6 @@ class FlowerDetailsFragment : Fragment() {
 
         val model = arguments!!.getSerializable(FLOWERMODEL) as FlowerModel
         fragmentFlowerDetailsBinding.flowerModel = model
-        model.text = String.format(getString(R.string.description_format), model.description, model.url)
         return fragmentFlowerDetailsBinding.root
     }
 

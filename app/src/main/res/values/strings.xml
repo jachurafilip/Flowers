@@ -10,4 +10,5 @@
     <string name="last_watering">Last watering</string>
     <string name="frequency">Frequency</string>
     <string name="Add_flower">Add flower!</string>
+    <string name="water">Water this plant</string>
 </resources>

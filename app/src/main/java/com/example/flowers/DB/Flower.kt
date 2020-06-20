@@ -3,6 +3,7 @@ package com.example.flowers.DB
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.sql.Time
 import java.util.*
 
@@ -24,7 +25,7 @@ data class Flower(
     var isNotificationSent: Boolean = false
 
 
-) {
+) : Serializable {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

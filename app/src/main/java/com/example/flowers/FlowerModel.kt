@@ -1,9 +1,9 @@
 package com.example.flowers
 import java.io.Serializable
+import java.util.*
 
 
-data class FlowerModel (val imageResId: Int,
-                        val name: String,
-                        val description: String,
-                        val url: String,
-                        var text: String = "") : Serializable
+data class FlowerModel (
+    var name: String,
+    var lastWaterning: Date,
+    var frequency: Long) : Serializable

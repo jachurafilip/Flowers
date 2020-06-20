@@ -8,16 +8,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.flowers.DB.AppDatabase
+import com.example.flowers.DB.FlowerDAO
 import com.example.flowers.databinding.RecyclerItemFlowerModelBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class FlowerListFragment : Fragment() {
 
-    private lateinit var imageResIds: IntArray
-    private lateinit var names: Array<String>
-    private lateinit var descriptions: Array<String>
-    private lateinit var urls: Array<String>
+    private  var names: MutableList<String> = ArrayList()
+    private  var dates: MutableList<Date> = ArrayList()
+    private  var frequencies: MutableList<Long> = ArrayList()
     private lateinit var listener: OnFlowerSelected
+    private val db: AppDatabase = AppDatabase.getInstance()
+    private val flowerDao: FlowerDAO = db.FlowerDAO()
 
     companion object {
 
@@ -37,18 +42,16 @@ class FlowerListFragment : Fragment() {
 
         // Get names and descriptions.
         val resources = context.resources
-        names = resources.getStringArray(R.array.names)
-        descriptions = resources.getStringArray(R.array.descriptions)
-        urls = resources.getStringArray(R.array.urls)
+        val allPlants = flowerDao.getAllFlowers()
 
-        // Get images.
-        val typedArray = resources.obtainTypedArray(R.array.images)
-        val imageCount = names.size
-        imageResIds = IntArray(imageCount)
-        for (i in 0 until imageCount) {
-            imageResIds[i] = typedArray.getResourceId(i, 0)
+        for (flower in allPlants)
+        {
+            names.add(flower.name)
+            dates.add(flower.lastWatering)
+            frequencies.add(flower.frequency)
+
+
         }
-        typedArray.recycle()
     }
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -74,8 +77,8 @@ class FlowerListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val flower = FlowerModel(imageResIds[position], names[position],
-                descriptions[position], urls[position])
+            val flower = FlowerModel( names[position],
+                dates[position], frequencies[position])
             viewHolder.setData(flower)
             viewHolder.itemView.setOnClickListener { listener.onFlowerSelected(flower) }
         }
