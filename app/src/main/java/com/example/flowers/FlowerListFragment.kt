@@ -13,9 +13,9 @@ import com.example.flowers.databinding.RecyclerItemFlowerModelBinding
 
 class FlowerListFragment : Fragment() {
 
-
+    private lateinit var imageResIds: IntArray
     private lateinit var names: Array<String>
-    private lateinit var lastWarnings: SuppressWarnings: Array<String>
+    private lateinit var descriptions: Array<String>
     private lateinit var urls: Array<String>
     private lateinit var listener: OnFlowerSelected
 
