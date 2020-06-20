@@ -27,6 +27,7 @@ class MyReceiver : BroadcastReceiver() {
 
         for (flower in flowers)
         {
+
             if (flower.lastWatering.time + flower.frequency * 1000 * 60 < Calendar.getInstance().time.time) {
                 if(!flower.isNotificationSent)
                 {

@@ -1,5 +1,6 @@
 package com.example.flowers
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,6 +11,7 @@ import java.util.*
 import kotlin.properties.Delegates
 
 class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSelected {
+    val FLOWER_ID = "com.example.myfirstapp.FLOWERID"
     private var flowerId: Long = -1
     private val db: AppDatabase = AppDatabase.getInstance()
     private val flowerDao: FlowerDAO = db.FlowerDAO()
@@ -41,6 +43,9 @@ class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSel
         flower.isNotificationSent = false
         Log.e("WATER", flower.toString())
         flowerDao.update(flower)
+        val resultIntent = Intent(this, FlowerDetailsActivity::class.java)
+        resultIntent.putExtra(FLOWER_ID, flower.flowerId)
+        startActivity(resultIntent)
 
     }
 
@@ -48,6 +53,9 @@ class FlowerDetailsActivity : AppCompatActivity(),FlowerListFragment.OnFlowerSel
     {
         val flower = flowerDao.getFlowerById(flowerId)
         flowerDao.delete(flower)
+        val resultIntent = Intent(this, ListFlowersActivity::class.java)
+        startActivity(resultIntent)
+
     }
 
     override fun onFlowerSelected(flowerModel: FlowerModel) {

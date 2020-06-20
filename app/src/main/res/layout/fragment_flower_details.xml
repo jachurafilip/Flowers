@@ -35,7 +35,7 @@
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="184dp"
                 android:layout_height="201dp"
-                android:text="@{flowerModel.name}" />
+                android:text="@{flowerModel.lastWaterning.toString()}" />
 
             <Button
                 android:id="@+id/water"
@@ -43,6 +43,13 @@
                 android:layout_height="wrap_content"
                 android:onClick="water"
                 android:text="@string/water" />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="delete"
+                android:text="@string/delete" />
 
         </LinearLayout>
 
