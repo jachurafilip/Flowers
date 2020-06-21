@@ -27,7 +27,7 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="132dp"
+                android:layout_marginTop="36dp"
                 android:gravity="center"
                 android:text="@{flowerModel.name}"
                 android:textSize="32dp"
@@ -60,6 +60,31 @@
                 app:layout_constraintTop_toBottomOf="@+id/description"
                 tools:layout_editor_absoluteX="0dp" />
 
+            <TextView
+                android:id="@+id/frequency"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/watering_frequency"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/frequency2"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/frequency2"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="84dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(flowerModel.frequency)}"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/water"
+                tools:layout_editor_absoluteX="0dp" />
+
             <Button
                 android:id="@+id/water"
                 android:layout_width="match_parent"
@@ -69,13 +94,13 @@
                 android:text="@string/water"
                 app:layout_constraintBottom_toTopOf="@+id/delete"
 
-                tools:layout_editor_absoluteX="-16dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <Button
                 android:id="@+id/delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="72dp"
+                android:layout_marginBottom="52dp"
                 android:onClick="delete"
                 android:text="@string/delete"
                 app:layout_constraintBottom_toBottomOf="parent"

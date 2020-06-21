@@ -27,19 +27,21 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="36dp"
                 android:gravity="center"
                 android:text="@{flowerModel.name}"
                 android:textSize="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/description"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/description"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="@string/last_watering_was_on"
                 android:textSize="20dp"
@@ -51,12 +53,39 @@
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="@{flowerModel.lastWaterning.toString()}"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/frequency"
                 app:layout_constraintTop_toBottomOf="@+id/description"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/frequency"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="@string/watering_frequency"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/frequency2"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/frequency2"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(flowerModel.frequency)}"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/water"
                 tools:layout_editor_absoluteX="0dp" />
 
             <Button
@@ -68,13 +97,13 @@
                 android:text="@string/water"
                 app:layout_constraintBottom_toTopOf="@+id/delete"
 
-                tools:layout_editor_absoluteX="-16dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <Button
                 android:id="@+id/delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="56dp"
+                android:layout_marginBottom="52dp"
                 android:onClick="delete"
                 android:text="@string/delete"
                 app:layout_constraintBottom_toBottomOf="parent"

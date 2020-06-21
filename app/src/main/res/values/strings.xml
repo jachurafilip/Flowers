@@ -12,6 +12,6 @@
     <string name="Add_flower">Add flower!</string>
     <string name="water">Water this plant</string>
     <string name="delete">Delete this plant</string>
-    <string name="last_watering_was_on_x">Last watering was on </string>
+    <string name="watering_frequency">Watering frequency </string>
     <string name="last_watering_was_on">Last watering was on</string>
 </resources>
