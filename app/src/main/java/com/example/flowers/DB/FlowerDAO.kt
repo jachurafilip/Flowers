@@ -24,6 +24,4 @@ interface FlowerDAO {
 
     @Update
     fun update(flower: Flower)
-
-
 }
