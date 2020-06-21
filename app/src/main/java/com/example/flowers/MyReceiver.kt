@@ -67,6 +67,5 @@ class MyReceiver : BroadcastReceiver() {
 
         flower.isNotificationSent = true
         flowerDAO.update(flower)
-
     }
 }

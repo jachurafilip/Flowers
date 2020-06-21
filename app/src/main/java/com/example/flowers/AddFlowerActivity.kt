@@ -1,21 +1,14 @@
 package com.example.flowers
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.DatePicker
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flowers.DB.AppDatabase
 import com.example.flowers.DB.Flower
 import com.example.flowers.DB.FlowerDAO
 import kotlinx.android.synthetic.main.flower_add.*
-import java.sql.Date
-import java.text.SimpleDateFormat
 import java.util.*
 
 class AddFlowerActivity : AppCompatActivity() {
@@ -52,7 +45,6 @@ class AddFlowerActivity : AppCompatActivity() {
             val intent = Intent(this, AddFlowerActivity::class.java)
             startActivity(intent)
         }
-        
     }
 
 

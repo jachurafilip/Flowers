@@ -57,16 +57,6 @@ class FlowerListFragment : Fragment() {
         }
     }
 
-
-//    override fun onConfigurationChanged(newConfig: Configuration): Unit {
-//        super.onConfigurationChanged(newConfig)
-//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//          ...
-//        } else {
-//          ...
-//        }
-//    }
-
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

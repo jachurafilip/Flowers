@@ -47,7 +47,7 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
         val flower = flowerDao.getFlowerById(flowerId)
         flower.lastWatering.time = Calendar.getInstance().time.time
         flower.isNotificationSent = false
-        Log.e("WATER", flower.toString())
+        Log.i("WATER", flower.toString())
         flowerDao.update(flower)
         val resultIntent = Intent(this, FlowerDetailsActivity::class.java)
         resultIntent.putExtra(FLOWER_ID, flower.flowerId)
