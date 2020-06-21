@@ -1,12 +1,12 @@
 package com.example.flowers
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flowers.DB.AppDatabase
-import com.example.flowers.DB.Flower
 import com.example.flowers.DB.FlowerDAO
 import java.util.*
 
@@ -42,9 +42,6 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
             .commit()
     }
 
-    fun getAllFlowers(): List<Flower> {
-        return flowerDao.getAllFlowers()
-    }
     fun water(view: View)
     {
         val flower = flowerDao.getFlowerById(flowerId)
@@ -63,9 +60,11 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
         val resultIntent = Intent(this, ListFlowersActivity::class.java)
         startActivity(resultIntent)
     }
-    fun test(): String
-    {
-        return "ABC"
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        val resultIntent = Intent(this, ListFlowersActivity::class.java)
+        startActivity(resultIntent)
     }
 
 }
