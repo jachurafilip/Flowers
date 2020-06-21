@@ -32,14 +32,14 @@ class AddFlowerActivity : AppCompatActivity() {
 
     }
 
-    val textView: TextView = this.new_item_last_watering
-    val buttonDate: Button = this.new_item_last_watering_button
 //    textView!!.text = "--/--/----"
 
     fun addFlower(view: View)
     {
         val flower = Flower()
 
+//        val view = this.new_item_last_watering;
+//
 //        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
 //            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
 //                                   dayOfMonth: Int) {
@@ -50,7 +50,7 @@ class AddFlowerActivity : AppCompatActivity() {
 //            }
 //        }
 //
-//        buttonDate!!.setOnClickListener(object : View.OnClickListener {
+//        this.new_item_last_watering_button!!.setOnClickListener(object : View.OnClickListener {
 //            override fun onClick(view: View) {
 //                DatePickerDialog(this@AddFlowerActivity,
 //                    dateSetListener,
@@ -67,9 +67,13 @@ class AddFlowerActivity : AppCompatActivity() {
 //
 //            val myFormat = "dd.MM.yyyy" // mention the format you need
 //            val sdf = SimpleDateFormat(myFormat, Locale.US)
-//            textView.text = sdf.format(cal.time)
+//            this.new_item_last_watering.text = sdf.format(cal.time)
 //
 //        }
+
+
+//        val textView: TextView = this.new_item_last_watering
+//        val buttonDate: Button = this.new_item_last_watering_button
 
         val datePicker = findViewById<DatePicker>(R.id.date_picker)
         val cal = Calendar.getInstance()
@@ -80,10 +84,9 @@ class AddFlowerActivity : AppCompatActivity() {
             val month = month + 1
             val msg = "You Selected: $day/$month/$year"
             val date = "$day$month$year"
-            flower.lastWatering.time = date.toLong()
             Toast.makeText(this@AddFlowerActivity, msg, Toast.LENGTH_SHORT).show()
+            flower.lastWatering.time = date.toLong()
         }
-
 
         flower.name = new_item_name.text.toString()
 //        flower.lastWatering.time = cal.toString().toLong()
@@ -95,10 +98,10 @@ class AddFlowerActivity : AppCompatActivity() {
 
     }
 
-    private fun updateDateInView() {
+    private fun updateDateInView(view : TextView) {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        textView!!.text = sdf.format(cal.getTime())
+        view!!.text = sdf.format(cal.getTime())
     }
 
     fun insertFlower(flower: Flower) {

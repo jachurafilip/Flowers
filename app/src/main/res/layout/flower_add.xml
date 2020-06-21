@@ -57,14 +57,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:datePickerMode="spinner"
-        android:calendarViewShown="true"/>
+        android:calendarViewShown="false"/>
 
 
-    <Button
-        android:id="@+id/new_item_last_watering_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose date" />
+<!--    <Button-->
+<!--        android:id="@+id/new_item_last_watering_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Choose date" />-->
 
     <TextView
         android:layout_width="match_parent"
