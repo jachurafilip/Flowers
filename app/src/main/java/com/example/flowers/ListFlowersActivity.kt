@@ -63,5 +63,9 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListFragment.OnFlowerSele
         val resultIntent = Intent(this, ListFlowersActivity::class.java)
         startActivity(resultIntent)
     }
+    fun test(): String
+    {
+        return "ABC"
+    }
 
 }
