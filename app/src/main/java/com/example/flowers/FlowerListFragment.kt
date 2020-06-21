@@ -1,6 +1,7 @@
 package com.example.flowers
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,14 +57,32 @@ class FlowerListFragment : Fragment() {
         }
     }
 
+
+//    override fun onConfigurationChanged(newConfig: Configuration): Unit {
+//        super.onConfigurationChanged(newConfig)
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//          ...
+//        } else {
+//          ...
+//        }
+//    }
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         val view: View = inflater.inflate(R.layout.fragment_flower_list, container,
             false)
         val activity = activity as Context
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = GridLayoutManager(activity, 2)
+
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.layoutManager = GridLayoutManager(activity, 2)
+        }else {
+            recyclerView.layoutManager = GridLayoutManager(activity, 1)
+        }
+
         recyclerView.adapter = FlowerListAdapter(activity)
         return view
     }
